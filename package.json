@@ -1,0 +1,24 @@
+{
+  "name": "web_ble_ecg_socket_server",
+  "version": "1.0.0",
+  "description": "Socket server to receive data from the Web BLE ECG app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket",
+    "server",
+    "ecg",
+    "ble"
+  ],
+  "author": "Jose Granados",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1",
+    "ws": "^8.8.0"
+  }
+}
