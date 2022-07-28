@@ -1,5 +1,7 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
+import { Client, Account } from 'appwrite';
+import { v4 as uuidv4 } from 'uuid';
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
@@ -110,6 +112,30 @@ io.on('connection', (socket) => {
 
     socket.on('force_disconnect', function () {
         socket.disconnect();
+    });
+
+    // Register new patient as account.
+    socket.on('register_patient', patient => {
+        let name = patient.firstname + " " + patient.lastname;
+        try {
+            let client = new Client();
+            client
+                .setEndpoint('http://localhost/v1')     // API Endpoint
+                .setProject('62df3fea46cdea6f457b');    // Project ID
+            let account = new Account(client);
+            let id = uuidv4();
+            account.create(id, id + "@patient.signin", id, name)
+                .then(response => {
+                    console.log(response);
+                    console.log("Registered OK");
+                    socket.emit("patient_register_ok", id);
+                }, error => {
+                    console.log(error);
+                    socket.emit("patient_register_error", id);
+                });
+        } catch (error) {
+            console.log(error);
+        }
     });
 });
 
