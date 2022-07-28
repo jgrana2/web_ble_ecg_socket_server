@@ -71,42 +71,34 @@ io.on('connection', (socket) => {
     });
 
     socket.on("8171", data => {
-        // console.log(data);
         socket.broadcast.emit("8171", data);
     });
 
     socket.on("8172", data => {
-        // console.log(data);
         socket.broadcast.emit("8172", data);
     });
 
     socket.on("8173", data => {
-        // console.log(data);
         socket.broadcast.emit("8173", data);
     });
 
     socket.on("8174", data => {
-        // console.log(data);
         socket.broadcast.emit("8174", data);
     });
 
     socket.on("8175", data => {
-        // console.log(data);
         socket.broadcast.emit("8175", data);
     });
 
     socket.on("8176", data => {
-        // console.log(data);
         socket.broadcast.emit("8176", data);
     });
 
     socket.on("8177", data => {
-        // console.log(data);
         socket.broadcast.emit("8177", data);
     });
 
-    socket.on("8178", data => {
-        // console.log(data);
+    socket.on("8178", data => {        
         socket.broadcast.emit("8178", data);
     });
 
